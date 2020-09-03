@@ -1,5 +1,6 @@
 package com.openclassrooms.magicgithub.api;
 
+import android.util.Log;
 import com.openclassrooms.magicgithub.model.User;
 import java.util.List;
 import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.generateUsers;
@@ -14,10 +15,7 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public List<User> getUsers() {
-        // TODO: A modifier
-        // --------- UPDATE CODE -------------------------
-        return users; // return null
-        // -----------------------------------------------
+        return users;
     }
 
     /**
@@ -26,10 +24,15 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void generateRandomUser() {
-        // TODO: A modifier
-        // --------- UPDATE CODE -------------------------
-        users.add(User.random()); // Id value must be modified when new User is generated
-        // -----------------------------------------------
+        User user = User.random();
+
+        // Check if generated user is already in the users list
+        if(!users.contains(user)) {
+            users.add(user);
+        }
+        else{
+            Log.e("ERROR_GENERATE_USER", "New user (id: " + user.getId() + " login: " + user.getLogin() + ") already exists");
+        }
     }
 
     /**
@@ -37,19 +40,6 @@ public class FakeApiService implements ApiService {
      */
     @Override
     public void deleteUser(User user) {
-        // TODO: A modifier
-        // --------- UPDATE CODE -------------------------
-        int indice = 0;
-        boolean found = false;
-        while( indice < users.size() && !found){
-
-            if(users.get(indice).equals(user)){
-                users.remove(indice);
-                found = true;
-            }
-
-            else indice = indice + 1;
-        }
-        // -----------------------------------------------
+        users.remove(user);
     }
 }

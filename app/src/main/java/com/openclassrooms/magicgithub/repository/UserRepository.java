@@ -2,7 +2,6 @@ package com.openclassrooms.magicgithub.repository;
 
 import com.openclassrooms.magicgithub.api.ApiService;
 import com.openclassrooms.magicgithub.model.User;
-
 import java.util.List;
 
 public class UserRepository {
@@ -14,23 +13,14 @@ public class UserRepository {
     }
 
     public List<User> getUsers() {
-        // TODO: A modifier
-        // --------- UPDATE CODE -------------------------
-        return apiService.getUsers(); // return null
-        // -----------------------------------------------
+        return apiService.getUsers();
     }
 
     public void generateRandomUser() {
-        // TODO: A modifier
-        // --------- UPDATE CODE -------------------------
         apiService.generateRandomUser();
-        // -----------------------------------------------
     }
 
     public void deleteUser(User user) {
-        // TODO: A modifier
-        // --------- UPDATE CODE -------------------------
         apiService.deleteUser(user);
-        // -----------------------------------------------
     }
 }

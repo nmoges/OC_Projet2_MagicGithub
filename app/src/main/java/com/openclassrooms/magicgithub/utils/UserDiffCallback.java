@@ -1,7 +1,6 @@
 package com.openclassrooms.magicgithub.utils;
 
 import com.openclassrooms.magicgithub.model.User;
-
 import java.util.List;
 import androidx.recyclerview.widget.DiffUtil;
 

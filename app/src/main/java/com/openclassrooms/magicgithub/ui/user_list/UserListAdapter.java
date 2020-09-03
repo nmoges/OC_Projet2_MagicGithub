@@ -1,7 +1,6 @@
 package com.openclassrooms.magicgithub.ui.user_list;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,11 +49,9 @@ public class UserListAdapter extends RecyclerView.Adapter<ListUserViewHolder> {
     }
 
     // PUBLIC API ---
-
     public void updateList(List<User> newList) {
         DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new UserDiffCallback(newList, this.users));
         this.users = new ArrayList<>(newList);
-        // [NM] : Send updates event to adapter
         diffResult.dispatchUpdatesTo(this);
     }
 }

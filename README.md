@@ -1,4 +1,4 @@
-# OC_Projet2_MagicGithub
+# Application MagicGithub
 
 Test project with basic functionalities.
 
